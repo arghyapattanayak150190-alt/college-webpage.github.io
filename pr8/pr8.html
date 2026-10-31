@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marwadi University - Shaping Leaders of Tomorrow</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+       
+        :root {
+            --bs-body-font-family: 'Montserrat', sans-serif;
+            --bs-body-bg: #f6f3eb;
+            --bs-body-color: #333;
+
+            --bs-primary: #00a4a6;      /* teal accent */
+            --bs-primary-rgb: 0, 164, 166;
+            --bs-secondary: #0f3957;    /* deep blue */
+            --bs-secondary-rgb: 15, 57, 87;
+            --bs-dark: #1a1a1a;
+            --bs-dark-rgb: 26, 26, 26;
+            --bs-warning: #c59b27;      /* gold */
+            --bs-warning-rgb: 197, 155, 39;
+            --bs-light: #fdfaf5;
+            --bs-light-rgb: 253, 250, 245;
+
+            --bs-link-color: #0f3957;
+            --bs-border-radius: 0.5rem;
+            --bs-border-radius-lg: 1rem;
+
+            --brand-brown: #5d3b27;
+            --brand-gold-light: #f7d570;
+            --brand-gold-dark: #c59b27;
+            --brand-bullet-gold: #c6a661;
+            --brand-green: #7a915b;
+        }
+
+        body { overflow-x: hidden; }
+        .font-open-sans { font-family: 'Open Sans', sans-serif; }
+
+        /* --- Bespoke shapes/effects Bootstrap can't express as utilities --- */
+
+        .logo-icon {
+            width: 35px; height: 40px;
+            background-color: #7bd3d5;
+            border-radius: 2px 2px 20px 20px;
+            position: relative;
+        }
+        .logo-icon::after {
+            content: 'M';
+            color: var(--bs-secondary);
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .naac-logo {
+            width: 40px; height: 40px;
+            background: linear-gradient(135deg, var(--brand-gold-light), var(--brand-gold-dark));
+            border: 2px solid #fff;
+            font-size: 0.6rem; line-height: 1;
+        }
+
+        .side-banner {
+            writing-mode: vertical-rl;
+            text-orientation: mixed;
+            letter-spacing: 1px;
+        }
+        .side-banner:hover { background-color: #008284 !important; }
+
+        .shield-btn {
+            width: 80px; height: 95px;
+            background: linear-gradient(135deg, var(--brand-gold-light), var(--brand-gold-dark));
+            border-radius: 5px 5px 40px 40px;
+            color: #4a3600;
+            line-height: 1.2;
+        }
+        .shield-btn:hover { transform: translateY(-5px); color: #000; }
+
+        .hero-section {
+            position: relative;
+            min-height: 600px;
+        }
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 30%; right: 0; bottom: 0;
+            background: linear-gradient(90deg,
+                rgba(0,164,166,0.1) 0%, rgba(123,211,213,0.2) 20%,
+                rgba(247,213,112,0.2) 40%, rgba(238,130,238,0.1) 60%,
+                rgba(135,206,235,0.2) 80%, rgba(255,255,255,0) 100%);
+            filter: blur(40px);
+            z-index: 0;
+        }
+        .hero-section::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-image: radial-gradient(#d3ccc0 1px, transparent 1px);
+            background-size: 15px 15px;
+            opacity: 0.3;
+            z-index: 1;
+            mask-image: radial-gradient(ellipse at center, transparent 30%, black 80%);
+            -webkit-mask-image: radial-gradient(ellipse at center, transparent 30%, black 80%);
+        }
+
+        .dotted-line { border-left: 2px dotted #888; height: 100px; position: relative; }
+        .dotted-line::after {
+            content: '';
+            position: absolute;
+            bottom: -5px; left: -6px;
+            border-width: 5px 5px 0 5px;
+            border-style: solid;
+            border-color: #888 transparent transparent transparent;
+        }
+
+        .speaker-img-placeholder {
+            height: 350px;
+            background: url('https://images.unsplash.com/photo-1560523159-4a9692d222ef?q=80&w=800&auto=format&fit=crop') no-repeat center/cover;
+            mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+            -webkit-mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+        }
+        .podium-box { margin-top: -50px; }
+        .vg-icon { width: 30px; height: 30px; background: linear-gradient(45deg, #e67e22, #3498db, #2ecc71); border-radius: 50% 50% 50% 0; }
+
+        .stats-section {
+            background-color: var(--bs-light);
+            background-image: radial-gradient(#e0dcd2 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+        .qs-icon { background-color: #f0a500; color: white; font-weight: 800; position: relative; }
+        .qs-icon::after {
+            content: ''; position: absolute; bottom: 5px; right: 5px;
+            width: 10px; height: 10px; background: white;
+            clip-path: polygon(100% 0, 0 100%, 100% 100%);
+        }
+        .qs-asia { background-color: #f0a500; color: white; font-size: 0.65rem; }
+
+        .gold-number {
+            font-weight: 900; font-size: 7rem; line-height: 1;
+            background: linear-gradient(to bottom, #ffe58f 0%, #ffc107 30%, #d48b00 60%, #a66a00 100%);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            text-shadow: 1px 1px 0px #b57a00, 2px 2px 0px #a66a00, 3px 3px 0px #945d00,
+                         4px 4px 0px #825000, 5px 5px 0px #704400, 6px 6px 10px rgba(0,0,0,0.4),
+                         -1px -1px 0px rgba(255,255,255,0.6);
+        }
+        @media (max-width: 991px) { .gold-number { font-size: 5rem; } }
+        .map-bg-hint {
+            position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+            width: 250px; height: 250px;
+            background: radial-gradient(circle, rgba(212,139,0,0.05) 0%, rgba(255,255,255,0) 70%);
+            border-radius: 50%; z-index: 0;
+        }
+
+        .why-us-item::before {
+            content: ''; position: absolute; top: -12px; left: 50%; transform: translateX(-50%);
+            width: 36px; height: 42px; background-color: rgba(220, 215, 203, 0.6);
+            border-radius: 4px 4px 18px 18px; z-index: 0;
+        }
+
+        .coe-banner { background-color: #e5d7af; position: relative; overflow: hidden; }
+        .coe-banner::before {
+            content: ''; position: absolute; left: -5%; top: -20%; width: 300px; height: 300px;
+            background: radial-gradient(circle, rgba(200, 180, 130, 0.4) 0%, rgba(229, 215, 175, 0) 70%);
+            border-radius: 50%; z-index: 0;
+        }
+        .coe-icon { width: 50px; height: 50px; fill: none; stroke: #5a4118; stroke-width: 1.5; }
+
+        .collage-wrapper { position: relative; height: 600px; }
+        .collage-img { position: absolute; object-fit: cover; border: 3px solid #fff; }
+        .collage-img-1 { width: 60%; height: 220px; top: 0; left: 5%; z-index: 1; }
+        .collage-img-2 { width: 55%; height: 220px; top: 23%; right: 0%; z-index: 2; }
+        .collage-img-3 { width: 65%; height: 300px; bottom: 5%; left: 15%; z-index: 3; }
+        @media (max-width: 991px) {
+            .collage-wrapper { height: 450px; }
+            .collage-img-1 { height: 180px; width: 55%; }
+            .collage-img-2 { height: 180px; width: 50%; top: 20%; right: 5%; }
+            .collage-img-3 { height: 220px; width: 70%; left: 10%; bottom: 0; }
+        }
+        @media (max-width: 767px) {
+            .collage-wrapper { height: auto; display: flex; flex-direction: column; gap: 15px; position: static; }
+            .collage-img { position: static; width: 100% !important; height: 250px !important; }
+        }
+
+        .mission-list li { position: relative; padding-left: 28px; }
+        .mission-list li::before {
+            content: ''; position: absolute; left: 0; top: 4px; width: 12px; height: 15px;
+            background-color: var(--brand-bullet-gold);
+            border-radius: 2px 2px 6px 6px;
+            clip-path: polygon(0 0, 100% 0, 100% 70%, 50% 100%, 0 70%);
+        }
+        .first-letter { color: var(--brand-green); }
+
+        @media (max-width: 991px) { .shield-btn { display: none; } }
+    </style>
+</head>
+<body>
+
+    <!-- Fixed Side Banner -->
+    <a href="#" class="side-banner position-fixed top-50 end-0 translate-middle-y bg-primary text-white text-decoration-none py-4 px-2 fw-semibold shadow" style="z-index: 1000;">Apply Online Programs</a>
+
+    <!-- Top Bar -->
+    <div class="bg-body border-bottom font-open-sans">
+        <div class="container-fluid px-4 d-flex justify-content-end align-items-center gap-4 py-2">
+            <a href="#" class="btn btn-sm btn-secondary rounded-pill px-3 fw-bold" style="--bs-btn-bg: #5d3b27; --bs-btn-border-color: #5d3b27; --bs-btn-hover-bg: #4a2f1f; --bs-btn-hover-border-color: #4a2f1f; font-size: 0.75rem;">Apply Now</a>
+            <a href="#" class="text-dark text-decoration-none small fw-semibold">Login</a>
+            <a href="#" class="text-dark text-decoration-none small fw-semibold">Outcome Based Education</a>
+            <a href="#" class="text-dark text-decoration-none small fw-semibold">Parents</a>
+            <a href="#" class="text-dark text-decoration-none small fw-semibold">Alumni</a>
+            <a href="#" class="text-dark text-decoration-none small fw-semibold">Grade History</a>
+        </div>
+    </div>
+
+    <!-- Main Navigation -->
+    <nav class="navbar navbar-expand-lg sticky-top bg-body py-3 shadow-sm">
+        <div class="container-fluid px-4">
+            <a class="navbar-brand d-flex align-items-center" href="#">
+                <div class="logo-icon d-flex align-items-center justify-content-center text-white fw-bold fs-4 me-2"></div>
+                <div class="lh-sm">
+                    <div class="fs-5 fw-bold text-dark">Marwadi</div>
+                    <div class="small text-secondary font-open-sans">University</div>
+                </div>
+                <div class="naac-logo rounded-circle d-flex align-items-center justify-content-center text-center fw-bold ms-2">NAAC<br>A+</div>
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse justify-content-end" id="mainNav">
+                <ul class="navbar-nav mb-2 mb-lg-0">
+                    <li class="nav-item"><a class="nav-link text-secondary small fw-semibold text-uppercase px-3" href="#">Academics <span class="caret"></span></a></li>
+                    <li class="nav-item"><a class="nav-link text-secondary small fw-semibold text-uppercase px-3" href="#">Admission &amp; Aid</a></li>
+                    <li class="nav-item"><a class="nav-link text-secondary small fw-semibold text-uppercase px-3" href="#">Life at University</a></li>
+                    <li class="nav-item"><a class="nav-link text-secondary small fw-semibold text-uppercase px-3" href="#">Placements</a></li>
+                    <li class="nav-item"><a class="nav-link text-secondary small fw-semibold text-uppercase px-3" href="#">About Us</a></li>
+                    <li class="nav-item"><a class="nav-link text-secondary small fw-semibold text-uppercase px-3" href="#">International</a></li>
+                    <li class="nav-item"><a class="nav-link text-secondary small fw-semibold text-uppercase px-3" href="#">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section py-5 pb-5">
+        <div class="container-fluid px-5 position-relative" style="z-index: 2;">
+            <div class="row align-items-center">
+                <!-- Left Content -->
+                <div class="col-lg-6 mb-5 mb-lg-0">
+                    <div class="bg-secondary d-inline-block p-4 mb-4 shadow-lg">
+                        <h1 class="text-white fw-bold display-5 mb-0">Shaping Leaders of<br>Tomorrow</h1>
+                    </div>
+
+                    <div class="dotted-line ms-4 mb-4"></div>
+
+                    <p class="text-secondary fw-bold fs-5 ms-4" style="max-width: 90%;">
+                        Marwadi University Hosts Vibrant Gujarat
+                        Regional Conference, Bringing Together Visionary
+                        Leaders and Global Industry Voices
+                    </p>
+                </div>
+
+                <!-- Right Content (Speaker & Podium) -->
+                <div class="col-lg-6">
+                    <div class="position-relative text-center d-flex flex-column justify-content-end align-items-center h-100">
+                        <div class="speaker-img-placeholder w-75 rounded-top" style="max-width: 400px;"></div>
+                        <div class="podium-box bg-white text-start p-4 w-100 rounded shadow-lg position-relative" style="max-width: 450px; z-index: 2;">
+                            <div class="font-open-sans">
+                                <div class="d-flex align-items-center mb-1">
+                                    <div class="vg-icon me-2"></div>
+                                    <p class="mb-0 fw-bold" style="color:#d35400; font-size:1.1rem;">Vibrant GUJARAT</p>
+                                </div>
+                                <div class="d-flex justify-content-between align-items-end">
+                                    <p class="mb-0 fw-bold" style="color:#2980b9; font-size:0.9rem;">Regional <span class="text-secondary fw-normal">Conferences</span></p>
+                                    <div class="text-end">
+                                        <p class="mb-0 fw-bold text-primary" style="font-size:0.9rem;">Kutch and</p>
+                                        <p class="mb-0 fw-bold text-primary" style="font-size:0.9rem;">Saurashtra</p>
+                                        <p class="mb-0 mt-1 text-danger fw-semibold" style="font-size:0.65rem;">11th–12th January, 2026</p>
+                                        <p class="mb-0 text-muted fw-semibold" style="font-size:0.65rem;">Marwadi University, Rajkot</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a href="#" class="shield-btn position-absolute d-flex flex-column align-items-center justify-content-center text-decoration-none fw-bold small text-center shadow" style="right: 5%; top: 70%; z-index: 10;">
+                        Apply<br>Now
+                        <span class="mt-1">&#8599;</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats & Rankings Section -->
+    <section class="stats-section py-5">
+        <div class="container text-center">
+
+            <div class="qs-logo-container d-inline-flex align-items-center bg-white px-4 py-2 shadow-sm mb-5">
+                <div class="qs-icon fs-3 px-3 py-1 me-3">QS</div>
+                <div class="text-start lh-1">
+                    <div class="fw-bold fs-6">WORLD</div>
+                    <div class="fs-6 my-1">UNIVERSITY</div>
+                    <div class="fw-bold fs-6">RANKINGS <span class="qs-asia rounded-1 px-1 py-1 align-middle">ASIA 2026</span></div>
+                </div>
+            </div>
+
+            <div class="row align-items-center mt-4">
+                <div class="col-lg-4 mb-5 mb-lg-0">
+                    <div class="fw-bold fs-5 mb-2" style="color: var(--brand-brown);">Youngest University<br>in Asia to debut at</div>
+                    <div class="gold-number">353</div>
+                </div>
+
+                <div class="col-lg-4 position-relative mb-5 mb-lg-0">
+                    <div class="map-bg-hint"></div>
+                    <div class="position-relative" style="z-index:1;">
+                        <div class="d-flex align-items-center justify-content-center fs-3 fw-bold mb-1" style="color: var(--brand-brown);">
+                            Gujarat's <span class="fs-4 fw-black ms-2" style="color:#d48b00;">NO.</span>
+                        </div>
+                        <div class="fw-semibold text-secondary-emphasis mb-0">Private University</div>
+                        <div class="gold-number">1</div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4">
+                    <div class="fw-black fs-2 mb-n2" style="color:#d48b00; letter-spacing:1px;">TOP</div>
+                    <div class="gold-number">100</div>
+                    <div class="fw-bold mt-2" style="color:#222;">
+                        in Asia<br>
+                        for Internationalisation,<br>
+                        Student Exchange and Faculty Quality
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Us Section -->
+    <section class="py-5">
+        <div class="container">
+            <h2 class="text-center fw-bold display-6 mb-5">Why Us</h2>
+
+            <div class="row gx-4 gy-2">
+                <!-- Column 1 -->
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="why-us-item position-relative text-center mb-4 px-2">
+                        <div class="position-relative fs-4 fw-bold mb-0">World-class</div>
+                        <div class="position-relative fw-semibold text-muted">Infrastructure</div>
+                    </div>
+                    <div class="why-us-item position-relative text-center mb-4 px-2">
+                        <div class="position-relative fs-4 fw-bold mb-0">Career Hub</div>
+                        <div class="position-relative fw-semibold text-muted">Training &amp; Placement Cell</div>
+                    </div>
+                    <div class="why-us-item position-relative text-center mb-4 px-2">
+                        <div class="position-relative fs-4 fw-bold mb-0">4-acre</div>
+                        <div class="position-relative fw-semibold text-muted">Leisure Facilities</div>
+                    </div>
+                </div>
+
+                <!-- Column 2 -->
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="why-us-item position-relative text-center mb-4 px-2">
+                        <div class="position-relative fs-4 fw-bold mb-0">Dynamic</div>
+                        <div class="position-relative fw-semibold text-muted">Classrooms</div>
+                    </div>
+                    <div class="why-us-item position-relative text-center mb-4 px-2">
+                        <div class="position-relative fs-4 fw-bold mb-0">4500+</div>
+                        <div class="position-relative fw-semibold text-muted">Comprehensive Dorms</div>
+                    </div>
+                    <div class="why-us-item position-relative text-center mb-4 px-2">
+                        <div class="position-relative fs-4 fw-bold mb-0">40+</div>
+                        <div class="position-relative fw-semibold text-muted">Student Clubs</div>
+                    </div>
+                </div>
+
+                <!-- Column 3 -->
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="why-us-item position-relative text-center mb-4 px-2">
+                        <div class="position-relative fs-4 fw-bold mb-0">10,000+</div>
+                        <div class="position-relative fw-semibold text-muted">Placements</div>
+                    </div>
+                    <div class="why-us-item position-relative text-center mb-4 px-2">
+                        <div class="position-relative fs-4 fw-bold mb-0">Advanced</div>
+                        <div class="position-relative fw-semibold text-muted">State-of-the-Art Labs</div>
+                    </div>
+                    <div class="why-us-item position-relative text-center mb-4 px-2">
+                        <div class="position-relative fs-4 fw-bold mb-0">Training</div>
+                        <div class="position-relative fw-semibold text-muted">Skills Development</div>
+                    </div>
+                </div>
+
+                <!-- Column 4 -->
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="why-us-item position-relative text-center mb-4 px-2">
+                        <div class="position-relative fs-4 fw-bold mb-0">Innovative</div>
+                        <div class="position-relative fw-semibold text-muted">Infrastructure</div>
+                    </div>
+                    <div class="why-us-item position-relative text-center mb-4 px-2">
+                        <div class="position-relative fs-4 fw-bold mb-0">200+</div>
+                        <div class="position-relative fw-semibold text-muted">Industry Engagement</div>
+                    </div>
+                    <div class="why-us-item position-relative text-center mb-4 px-2">
+                        <div class="position-relative fs-4 fw-bold mb-0">120+ PhD</div>
+                        <div class="position-relative fw-semibold text-muted">Expert Faculty</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Center of Excellence Banner -->
+    <section class="coe-banner py-5">
+        <div class="container position-relative" style="z-index:1;">
+            <div class="row align-items-center">
+                <div class="col-md-3 col-lg-2">
+                    <div class="d-flex flex-column align-items-center justify-content-center h-100">
+                        <svg class="coe-icon mb-3" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                            <polygon points="50,15 61,35 83,38 67,54 71,76 50,65 29,76 33,54 17,38 39,35" fill="none" stroke="#5a4118" stroke-width="4" stroke-linejoin="round"/>
+                            <polygon points="50,25 56,38 70,40 60,50 62,64 50,57 38,64 40,50 30,40 44,38" fill="none" stroke="#5a4118" stroke-width="2"/>
+                            <path d="M 35,90 C 15,85 5,60 10,40" fill="none" stroke="#5a4118" stroke-width="3" stroke-linecap="round"/>
+                            <path d="M 65,90 C 85,85 95,60 90,40" fill="none" stroke="#5a4118" stroke-width="3" stroke-linecap="round"/>
+                            <circle cx="12" cy="45" r="2" fill="#5a4118"/><circle cx="88" cy="45" r="2" fill="#5a4118"/>
+                            <circle cx="9" cy="55" r="2" fill="#5a4118"/><circle cx="91" cy="55" r="2" fill="#5a4118"/>
+                            <circle cx="12" cy="65" r="2" fill="#5a4118"/><circle cx="88" cy="65" r="2" fill="#5a4118"/>
+                            <circle cx="18" cy="75" r="2" fill="#5a4118"/><circle cx="82" cy="75" r="2" fill="#5a4118"/>
+                            <circle cx="26" cy="83" r="2" fill="#5a4118"/><circle cx="74" cy="83" r="2" fill="#5a4118"/>
+                        </svg>
+                        <h4 class="fw-bold text-center mb-0" style="font-size:1.2rem;">Center of<br>Excellence</h4>
+                    </div>
+                </div>
+                <div class="col-md-9 col-lg-10 ps-md-4 pt-3 pt-md-0 text-center text-md-start">
+                    <p class="font-open-sans small mb-0" style="color:#3b3b3b; line-height:1.7;">Marwadi University has been proudly recognized as a "Centre of Excellence" by the Government of Gujarat, placing it among the top seven institutions in the state. This prestigious status highlights the university's commitment to providing Quality Education, Excellent Research, Innovative Teaching Methodologies, Quality of Extension Services, High Employability and Entrepreneurship are being imparted.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Vision, Mission & Core Values Section -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row align-items-center">
+                <!-- Left: Image Collage -->
+                <div class="col-lg-6 mb-5 mb-lg-0">
+                    <div class="collage-wrapper">
+                        <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?q=80&w=800&auto=format&fit=crop" alt="Classroom" class="collage-img collage-img-1 rounded-3 shadow">
+                        <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?q=80&w=800&auto=format&fit=crop" alt="Students walking" class="collage-img collage-img-2 rounded-3 shadow">
+                        <img src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?q=80&w=800&auto=format&fit=crop" alt="Engineering students" class="collage-img collage-img-3 rounded-3 shadow">
+                    </div>
+                </div>
+
+                <!-- Right: Text Content -->
+                <div class="col-lg-6 ps-lg-5">
+                    <h3 class="fw-bold fs-3 mb-2">Our Vision</h3>
+                    <p class="font-open-sans small mb-4" style="color:#444; line-height:1.6;">To foster an environment that empowers people, organisations, and societies through education, ideas, research, and training.</p>
+
+                    <h3 class="fw-bold fs-3 mt-4 mb-2">Our Mission</h3>
+                    <ul class="mission-list list-unstyled mb-4">
+                        <li class="font-open-sans small mb-3" style="color:#444;">To provide quality education and thereby bring social transformation</li>
+                        <li class="font-open-sans small mb-3" style="color:#444;">To create leaders through innovation and entrepreneurship</li>
+                        <li class="font-open-sans small mb-3" style="color:#444;">To cultivate the culture of research advancements</li>
+                        <li class="font-open-sans small mb-3" style="color:#444;">To imbibe universal consciousness</li>
+                        <li class="font-open-sans small mb-3" style="color:#444;">To stimulate growth through industrial and international partnerships</li>
+                    </ul>
+
+                    <h3 class="fw-bold text-uppercase mt-5 mb-2" style="font-size:1.2rem; letter-spacing:0.5px;">Our Core Values</h3>
+                    <div class="fw-bold fs-5 mb-3" style="letter-spacing:1px;">LEADER</div>
+                    <ul class="list-unstyled mb-0">
+                        <li class="fw-semibold small mb-3" style="letter-spacing:0.5px;"><span class="first-letter fw-bold">L</span>IFELONG LEARNING</li>
+                        <li class="fw-semibold small mb-3" style="letter-spacing:0.5px;"><span class="first-letter fw-bold">E</span>MPATHY</li>
+                        <li class="fw-semibold small mb-3" style="letter-spacing:0.5px;"><span class="first-letter fw-bold">A</span>DAPTABILITY</li>
+                        <li class="fw-semibold small mb-3" style="letter-spacing:0.5px;"><span class="first-letter fw-bold">D</span>IVERSITY</li>
+                        <li class="fw-semibold small mb-3" style="letter-spacing:0.5px;"><span class="first-letter fw-bold">E</span>MPOWERMENT</li>
+                        <li class="fw-semibold small mb-3" style="letter-spacing:0.5px;"><span class="first-letter fw-bold">R</span>ESPECT</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-light-emphasis pt-5 pb-3" style="color:#ccc;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="d-flex align-items-center mb-3">
+                        <div class="rounded-2" style="background-color:#555; width:30px; height:35px;"></div>
+                        <h5 class="mb-0 ms-2 text-white fw-bold">Marwadi University</h5>
+                    </div>
+                    <p class="mb-0" style="color:#ccc;">Shaping leaders of tomorrow through quality education and innovative learning methodologies.</p>
+                </div>
+                <div class="col-md-2 mb-4">
+                    <h5 class="text-white fw-bold mb-3">Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#" class="link-light link-opacity-75 link-opacity-100-hover text-decoration-none">About Us</a></li>
+                        <li class="mb-2"><a href="#" class="link-light link-opacity-75 link-opacity-100-hover text-decoration-none">Admissions</a></li>
+                        <li class="mb-2"><a href="#" class="link-light link-opacity-75 link-opacity-100-hover text-decoration-none">Academics</a></li>
+                        <li class="mb-2"><a href="#" class="link-light link-opacity-75 link-opacity-100-hover text-decoration-none">Placements</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <h5 class="text-white fw-bold mb-3">Resources</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#" class="link-light link-opacity-75 link-opacity-100-hover text-decoration-none">Student Portal</a></li>
+                        <li class="mb-2"><a href="#" class="link-light link-opacity-75 link-opacity-100-hover text-decoration-none">Library</a></li>
+                        <li class="mb-2"><a href="#" class="link-light link-opacity-75 link-opacity-100-hover text-decoration-none">Alumni Network</a></li>
+                        <li class="mb-2"><a href="#" class="link-light link-opacity-75 link-opacity-100-hover text-decoration-none">Careers</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <h5 class="text-white fw-bold mb-3">Contact Us</h5>
+                    <p class="mb-2" style="color:#ccc;">Rajkot-Morbi Highway,<br>Rajkot 360003<br>Gujarat, India</p>
+                    <p class="mb-0" style="color:#ccc;">Email: info@marwadiuniversity.ac.in</p>
+                </div>
+            </div>
+            <div class="border-top border-secondary mt-4 pt-3 text-center small">
+                &copy; 2026 Marwadi University. All Rights Reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
