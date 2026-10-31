@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>College Portal</title>
+</head>
+<link rel="stylesheet" href="index.css">
+
+<body style="margin:0; font-family:Arial, Arial, Helvetica, sans-serif; background:#f5f5f5;">
+
+    <div
+        style="background:#1fcff2; padding:12px 50px; display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid #ddd;">
+
+        <div style="display:flex; align-items:center;">
+            <img src="data:image/png;base64,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"
+                height="55" width="55">
+
+            <div style="margin-left:10px;">
+                <h2 style="margin:0; color:#222;">MARWADI UNIVERSITY</h2>
+                <span style="font-size:14px; color:gray;">Student Portal</span>
+            </div>
+        </div>
+
+        <div>
+
+            <a href="#" style="text-decoration:none; color:#333; margin-right:25px;">Home</a>
+
+            <a href="#" style="text-decoration:none; color:#333; margin-right:25px;">Login</a>
+
+            <a href="#" style="text-decoration:none; color:#333; margin-right:25px;">Register</a>
+
+            <a href="#" style="text-decoration:none; color:#333; margin-right:25px;">About</a>
+
+
+        </div>
+        <button style="
+        padding:10px 22px;
+        background:#7b4b29;
+        color:white;
+        border:none;
+        border-radius:25px;
+        cursor:pointer;
+        font-size:15px;">
+            Apply Now
+        </button>
+
+    </div>
+
+
+    <div style="
+background:#ece3d4;
+padding:18px;
+display:flex;
+justify-content:center;
+gap:45px;
+font-size:18px;
+font-weight:bold;">
+
+        <a href="#" style="text-decoration:none;color:#5d3920;">LIFE AT UNIVERSITY</a>
+
+        <a href="#" style="text-decoration:none;color:#5d3920;">ACADEMICS</a>
+
+        <a href="#" style="text-decoration:none;color:#5d3920;">ADMISSION&AD</a>
+
+        <a href="#" style="text-decoration:none;color:#5d3920;">DEPARTMENTS</a>
+
+        <a href="#" style="text-decoration:none;color:#5d3920;">PLACEMENTS</a>
+
+        <a href="#" style="text-decoration:none;color:#5d3920;">ABOUT US</a>
+
+        <a href="#" style="text-decoration:none;color:#5d3920;">INTERNATIONAL</a>
+
+    </div>
+
+
+    <div style="
+height:520px;
+background-image:url('https://www.marwadiuniversity.ac.in/wp-content/uploads/2025/11/qs-desktop.jpg');
+background-size:cover;
+background-position:center;
+position:relative;">
+
+
+        <div style="
+position:absolute;
+left:0;
+top:0;
+height:100%;
+width:100%;
+background:rgba(210,235,245,0.45);">
+
+            <div style="
+padding-top:120px;
+padding-left:80px;">
+
+                <h3 style="
+font-size:35px;
+margin:0;
+color:#16334a;">
+                    Welcome To
+                </h3>
+
+                <h1 style="
+display:inline-block;
+background:#0d3554;
+color:white;
+padding:18px 25px;
+font-size:60px;
+margin-top:20px;
+margin-bottom:20px;">
+                    Marwadi University
+                </h1>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div style="padding:40px; background:#e5d4a3;">
+
+        <h2>Overview</h2>
+
+        <p>
+            Marwadi University has been proudly recognized as a "Centre of Excellence" by the Government of Gujarat,
+            placing it among the TOP SEVEN INSTITUTIONS in the state. This prestigious status highlights the
+            university's commitment to providing Quality Education, Excellent Research, Innovative Teaching
+            Methodologies, Quality of Extension Services, High Employability and Entrepreneurship are being imparted.
+        </p>
+
+    </div>
+
+
+    <div style="padding:70px 80px;background:#f8f8f8;">
+
+        <center>
+            <h1 style="font-size:45px;color:#12344d;margin-bottom:15px;">
+                Why Choose Marwadi University?
+            </h1>
+
+            <p style="font-size:18px;color:#666;width:75%;line-height:30px;">
+                Empowering future innovators through technology and creativity.
+            </p>
+        </center>
+
+        <br><br>
+
+        <div style="display:flex;justify-content:space-between;gap:25px;">
+
+
+            <div
+                style="background:white;padding:30px;border-radius:10px;width:23%;box-shadow:0px 3px 10px rgba(0,0,0,0.1);text-align:center;">
+
+                <div style="font-size:55px;"></div>
+
+                <h2 style="color:#0b3554;">Programming Skills</h2>
+
+                <p style="color:#666;line-height:28px;">
+                    Learn C, C++, Java, Python, Web Development,
+                    Data Structures and Algorithms from experienced faculty.
+                </p>
+
+            </div>
+
+
+            <div
+                style="background:white;padding:30px;border-radius:10px;width:23%;box-shadow:0px 3px 10px rgba(0,0,0,0.1);text-align:center;">
+
+                <div style="font-size:55px;"></div>
+
+                <h2 style="color:#0b3554;">Artificial Intelligence</h2>
+
+                <p style="color:#666;line-height:28px;">
+                    Gain knowledge in AI, Machine Learning,
+                    Data Science and modern intelligent systems.
+                </p>
+
+            </div>
+
+
+            <div
+                style="background:white;padding:30px;border-radius:10px;width:23%;box-shadow:0px 3px 10px rgba(0,0,0,0.1);text-align:center;">
+
+                <div style="font-size:55px;"></div>
+
+                <h2 style="color:#0b3554;">Industry Projects</h2>
+
+                <p style="color:#666;line-height:28px;">
+                    Build real-world projects, internships and
+                    hands-on experience with the latest technologies.
+                </p>
+
+            </div>
+
+
+            <div
+                style="background:white;padding:30px;border-radius:10px;width:23%;box-shadow:0px 3px 10px rgba(0,0,0,0.1);text-align:center;">
+
+                <div style="font-size:55px;"></div>
+
+                <h2 style="color:#0b3554;">Excellent Placements</h2>
+
+                <p style="color:#666;line-height:28px;">
+                    Top recruiters, coding competitions,
+                    career guidance and placement assistance.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div style="padding:70px 80px;background:white;">
+
+        <div style="display:flex;justify-content:space-between;align-items:center;">
+
+
+            <div style="width:58%;">
+
+                <h1 style="font-size:42px;color:#12344d;">
+                    Career Opportunities
+                </h1>
+
+                <p style="font-size:18px;color:#666;line-height:34px;">
+                    Graduates can pursue exciting careers across diverse fields such as Computer Science & Engineering,
+                    Mechanical Engineering, Civil Engineering, Electrical Engineering, Electronics & Communication
+                    Engineering, Artificial Intelligence & Data Science, Business Administration (MBA), Business
+                    Administration (BBA), Computer Applications (BCA & MCA), Commerce, Pharmacy, Architecture, Design,
+                    Healthcare, Finance, Marketing, Human Resources, Entrepreneurship, Research, Government Services,
+                    and many other emerging industries.
+
+                    <br><br>
+
+                    Students also receive opportunities for internships,
+                    entrepreneurship, startup incubation, higher education,
+                    and international career paths.
+
+                </p>
+
+                <button
+                    style="padding:15px 35px;background:#0b3554;color:white;border:none;border-radius:5px;font-size:18px;cursor:pointer;">
+                    Explore Careers →
+                </button>
+
+            </div>
+
+
+            <div style="width:35%;">
+
+                <div style="background:#f4f4f4;padding:35px;border-radius:10px;">
+
+                    <h2 style="color:#12344d;">Our Recruiters</h2>
+
+                    <hr>
+
+                    <p style="font-size:18px;">✔ Google</p>
+
+                    <p style="font-size:18px;">✔ tech Mhendra</p>
+
+                    <p style="font-size:18px;">✔ Flipkart</p>
+
+                    <p style="font-size:18px;">✔ TCS</p>
+
+                    <p style="font-size:18px;">✔ HDFC Bank</p>
+
+                    <p style="font-size:18px;">✔ Adani</p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+    <footer class="footer">
+        <div class="footer-container">
+
+            <!-- Quick Links -->
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#">FAQs</a></li>
+                    <li><a href="#">Careers</a></li>
+                    <li><a href="#">UGC Proform</a></li>
+                    <li><a href="#">Disclosure</a></li>
+                    <li><a href="#">NIRF</a></li>
+                    <li><a href="#">Academic Calendar</a></li>
+                    <li><a href="#">Code of Conduct</a></li>
+                    <li><a href="#">NBA</a></li>
+                    <li><a href="#">NAAC</a></li>
+                    <li><a href="#">Tender</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h3>Centres</h3>
+                <ul>
+                    <li><a href="#">MUIIR</a></li>
+                    <li><a href="#">CEFB</a></li>
+                </ul>
+
+                <h3 class="mt">Cells</h3>
+
+                <ul>
+                    <li><a href="#">Women Cell</a></li>
+                    <li><a href="#">Placement Cells</a></li>
+                    <li><a href="#">Anti Ragging Cells</a></li>
+                    <li><a href="#">Equal Opportunity Cell</a></li>
+                    <li><a href="#">Socio-Economically Disadvantaged Group Cell (SEDG)</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h3>Downloads</h3>
+                <ul>
+                    <li><a href="#">Brochure</a></li>
+                    <li><a href="#">MU Statutes & Ordinances</a></li>
+                    <li><a href="#">University Strategic Plan</a></li>
+                    <li><a href="#">Inclusion as per section 2(f) of the UGC Act 1956</a></li>
+                    <li><a href="#">Act No 9 of 2016</a></li>
+                    <li><a href="#">Whistleblower Policy</a></li>
+                    <li><a href="#">UGC Proform</a></li>
+                    <li><a href="#">SIRO Recognition</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h3>Students Corner</h3>
+                <ul>
+                    <li><a href="#">Login</a></li>
+                    <li><a href="#">LMS</a></li>
+                    <li><a href="#">Library</a></li>
+                    <li><a href="#">Alumni</a></li>
+                    <li><a href="#">Convocation</a></li>
+                    <li><a href="#">Internal Complaints Committee</a></li>
+                    <li><a href="#">National Academic Depository</a></li>
+                    <li><a href="#">DigiLocker NAD</a></li>
+                    <li><a href="#">NAD-ABC</a></li>
+                    <li><a href="#">Student Activities Committee</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h3>Follow Us</h3>
+
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+
+                <h3 class="mt">Reach Us</h3>
+
+                <div class="contact-info">
+                    <p><i class="fas fa-location-dot"></i> Rajkot-Morbi Road, Rajkot 360003 Gujarat, India</p>
+
+                    <p><i class="fas fa-phone"></i> +91 2817123456</p>
+
+                    <p><i class="fas fa-envelope"></i> info@youruniversity.ac.in</p>
+
+                    <p><i class="fab fa-whatsapp"></i> +91 9898030090</p>
+                </div>
+            </div>
+
+        </div>
+    </footer>
+
+</body>
+
+</html>
